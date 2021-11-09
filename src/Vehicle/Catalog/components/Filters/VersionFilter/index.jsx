@@ -33,7 +33,7 @@ export default function VersionFilter() {
       onChange={handleVersionChange}
       className={styles.versionSelect}
       options={versions}
-      value={selectedVersion}
+      value={selectedVersion || allVersionsOption}
       getOptionValue={partial(get, 'id')}
       getOptionLabel={partial(get, 'name')}
       placeholder={null}
