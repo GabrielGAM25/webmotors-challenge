@@ -18,6 +18,7 @@ import {
   cities,
   CITY_ID_KEY,
   MODEL_ID_KEY,
+  MOTORCYCLES_TAB,
   NEW_VEHICLES_KEY,
   prices,
   PRICE_KEY,
@@ -30,6 +31,7 @@ import {
 } from 'Vehicle/Catalog/utils/constants';
 import CatalogContext from 'Vehicle/Catalog/Context';
 
+import tabStyles from './Tab/styles.module.scss';
 import Filters from '.';
 
 jest.mock('Brand/api/fetch');
@@ -93,6 +95,17 @@ test('renders the tabs for vehicle types', async () => {
   });
 });
 
+test('set the car tab as active by default', async () => {
+  const container = setup();
+  const tabsList = container.getByRole('tablist');
+  const [carTab, motorcycleTab] = within(tabsList).getAllByRole('tab');
+
+  await waitFor(() => {
+    expect(carTab).toHaveClass(tabStyles.active);
+    expect(motorcycleTab).not.toHaveClass(tabStyles.active);
+  });
+});
+
 test('calls updateFilter on tab click', async () => {
   const container = setup();
   const tabsList = container.getByRole('tablist');
@@ -102,7 +115,7 @@ test('calls updateFilter on tab click', async () => {
 
   await waitFor(() => {
     expect(defaultWrapperProps.updateFilter).toBeCalledTimes(1);
-    expect(defaultWrapperProps.updateFilter).toBeCalledWith(VEHICLE_TYPE_KEY, 'motos');
+    expect(defaultWrapperProps.updateFilter).toBeCalledWith(VEHICLE_TYPE_KEY, MOTORCYCLES_TAB);
   });
 });
 

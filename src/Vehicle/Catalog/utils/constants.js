@@ -9,6 +9,9 @@ export const YEAR_KEY = 'year';
 export const PRICE_KEY = 'price';
 export const VERSION_ID_KEY = 'version_id';
 
+export const CARS_TAB = 'carros';
+export const MOTORCYCLES_TAB = 'motos';
+
 export const cities = [
   { id: 1, name: 'São Paulo - SP' },
   { id: 2, name: 'Rio de Janeiro - RJ' },

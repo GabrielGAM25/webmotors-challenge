@@ -2,7 +2,13 @@ import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import partial from 'shared/utils/partial';
-import { NEW_VEHICLES_KEY, USED_VEHICLES_KEY, VEHICLE_TYPE_KEY } from 'Vehicle/Catalog/utils/constants';
+import {
+  CARS_TAB,
+  MOTORCYCLES_TAB,
+  NEW_VEHICLES_KEY,
+  USED_VEHICLES_KEY,
+  VEHICLE_TYPE_KEY,
+} from 'Vehicle/Catalog/utils/constants';
 import CatalogContext from 'Vehicle/Catalog/Context';
 
 import Tab from './Tab';
@@ -16,9 +22,6 @@ import PriceFilter from './PriceFilter';
 import VersionFilter from './VersionFilter';
 import styles from './styles.module.scss';
 
-const CARS_TAB = 'carros';
-const MOTORCYCLES_TAB = 'motos';
-
 export default function Filters() {
   const {
     filters,
@@ -27,7 +30,9 @@ export default function Filters() {
     searchVehicles,
   } = useContext(CatalogContext);
 
-  const isActive = (tabName) => filters[VEHICLE_TYPE_KEY] === tabName;
+  const activeTab = filters[VEHICLE_TYPE_KEY] || CARS_TAB;
+
+  const isActive = (tabName) => activeTab === tabName;
   const onChangeTab = partial(updateFilter, VEHICLE_TYPE_KEY);
 
   const isNewVehiclesChecked = !!filters[NEW_VEHICLES_KEY];
