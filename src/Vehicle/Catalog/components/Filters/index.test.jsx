@@ -31,7 +31,6 @@ import {
 import CatalogContext from 'Vehicle/Catalog/Context';
 
 import Filters from '.';
-import tabStyles from './Tab/styles.module.scss';
 
 jest.mock('Brand/api/fetch');
 jest.mock('Model/api/fetch');
