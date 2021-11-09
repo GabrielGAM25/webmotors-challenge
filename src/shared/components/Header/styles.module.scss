@@ -1,0 +1,14 @@
+@import "~shared/styles/dimensions";
+
+.header {
+  margin: auto;
+  max-width: $max-container-width;
+  width: $mobile-width;
+  padding: 2rem 0;
+  height: 8rem;
+  display: flex;
+
+  img {
+    height: 4rem;
+  }
+}

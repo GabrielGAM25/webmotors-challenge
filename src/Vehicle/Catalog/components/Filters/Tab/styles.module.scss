@@ -1,0 +1,61 @@
+@import "~shared/styles/colors";
+@import "~shared/styles/dimensions";
+
+.tab {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  border: 0;
+  transition: color 0.3s;
+  cursor: pointer;
+  color: $grey;
+  padding: 0 2rem 1rem;
+  position: relative;
+  flex-grow: 1;
+  height: 7rem;
+
+  &:hover,
+  &:focus,
+  &.active {
+    color: $red;
+  }
+
+  &:after {
+    content: "";
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: $red;
+    width: 0;
+    transition: width 0.3s;
+  }
+
+  &.active:after {
+    width: 100%;
+  }
+
+  .icon {
+    font-size: 3rem;
+    margin-right: 2rem;
+  }
+
+  .tabText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .smallText {
+      font-size: 1rem;
+    }
+
+    .bigText {
+      font-size: 2rem;
+
+      @include respond-to("portrait-phone") {
+        font-size: 3rem;
+      }
+    }
+  }
+}

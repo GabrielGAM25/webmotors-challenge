@@ -1,0 +1,8 @@
+@import "~shared/styles/dimensions";
+
+.container {
+  display: flex;
+  justify-content: center;
+  max-width: $max-container-width;
+  margin: auto;
+}

@@ -1,0 +1,19 @@
+@import "~shared/styles/dimensions";
+
+.versionSelect {
+  flex: 2;
+  min-width: 100%;
+
+  @include respond-to("portrait-phone") {
+    flex-direction: row;
+    min-width: 52rem;
+
+    .citySelect {
+      width: 65%;
+    }
+
+    .radiusSelect {
+      width: 35%;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@import "~shared/styles/colors";
+@import "~shared/styles/dimensions";
+
+.locationFilter {
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+  min-width: 100%;
+
+  .mapMarkerIcon {
+    width: 2rem;
+    color: $red;
+    margin-right: 1rem;
+  }
+
+  @include respond-to("portrait-phone") {
+    flex-direction: row;
+    min-width: 54rem;
+
+    .citySelect {
+      width: 65%;
+    }
+
+    .radiusSelect {
+      width: 35%;
+    }
+  }
+}
